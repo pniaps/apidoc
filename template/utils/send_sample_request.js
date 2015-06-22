@@ -68,32 +68,17 @@ define([
           }
       } // for
 
-      var ajaxRequest = {
+      // send AJAX request, catch success or error callback
+      $.ajax({
           url: url,
+          dataType: "json",
+          contentType: "application/json",
+          data: JSON.stringify(param),
           headers: header,
           type: type.toUpperCase(),
           success: displaySuccess,
           error: displayError
-      };
-
-      //dont send empty fields
-      Object.keys(param).filter(function (v) {
-          return !(param[v].length > 0);
-      }).forEach( function(it,idx,arr){
-          delete param[it];
       });
-
-      // Sample requests with GET parameters need to be added to the query string
-      if ( ajaxRequest.type !== "GET" ) {
-          ajaxRequest.dataType = "json";
-          ajaxRequest.data = JSON.stringify(param);
-          ajaxRequest.contentType = "application/json";
-      } else {
-          ajaxRequest.data = param;
-      }
-
-      // send AJAX request, catch success or error callback
-      $.ajax(ajaxRequest);
 
       function displaySuccess(data) {
           var jsonResponse;
