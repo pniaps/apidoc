@@ -1,11 +1,6 @@
 /* ------------------------------------------------------------------------------------------
  * Content
  * ------------------------------------------------------------------------------------------ */
-body {
-  min-width: 980px;
-  max-width: 1280px;
-}
-
 body, p, a, div, th, td {
   font-family: "Source Sans Pro", sans-serif;
   font-weight: 400;
@@ -23,6 +18,7 @@ td.code {
   padding-top: 16px;
   z-Index: -1;
   margin-left: 270px;
+    padding: 20px;
 }
 
 p {
